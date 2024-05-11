@@ -42,6 +42,7 @@ func main() {
 	)
 
 	r.Methods("GET").Path("/person/{person_id}/info").Handler(getPersonHandler)
+	r.Methods("POST").Path("/person/create")
 	if err := http.ListenAndServe(":8080", r); err != nil {
 		log.Fatalf("Error starting server: %v", err)
 	}
