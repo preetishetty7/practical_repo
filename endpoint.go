@@ -16,3 +16,14 @@ func makeGetPersonEndpoint(s Service) endpoint.Endpoint {
 		return person, nil
 	}
 }
+
+func makeCreatePersonEndpoint(s Service) endpoint.Endpoint {
+	return func(_ context.Context, request interface{}) (interface{}, error) {
+		req := request.(createRequest)
+		err := s.CreatePerson(req.Person)
+		if err != nil {
+			return nil, err
+		}
+		return nil, nil
+	}
+}

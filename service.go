@@ -4,6 +4,7 @@ import "database/sql"
 
 type Service interface {
 	GetPersonInfo(personId int) (Person, error)
+	CreatePerson(person Person) error
 }
 
 type MyService struct {
@@ -30,4 +31,9 @@ func (s *MyService) GetPersonInfo(personId int) (Person, error) {
 		return Person{}, err
 	}
 	return person, nil
+}
+
+func (s *MyService) CreatePerson(person Person) error {
+	//here we will write mysql queries to insert
+	return nil
 }

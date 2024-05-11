@@ -13,3 +13,7 @@ type Person struct {
 type getRequest struct {
 	PersonId int `json:"person_id"`
 }
+
+type createRequest struct {
+	Person Person `json:"person"`
+}
